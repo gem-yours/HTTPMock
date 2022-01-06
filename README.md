@@ -30,7 +30,7 @@ URLSession(configuration: HTTPMock.defausessionConfiguration)
 
 
 # install
-- swiftUI
+- swift Package Manager
 ``` swift 
 dependencies: [
     .package(url: "https://github.com/gem-yours/HTTPMock.git", .upToNextMajor(from: "1.0.0"))
