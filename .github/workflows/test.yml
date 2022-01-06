@@ -2,22 +2,14 @@ name: unit test
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - run: cd HTTPMock && swift test
-    - name: Send mail
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: mtp.gmail.com
-        server_port: 465
-        subject: \[HTTPMock\] test result
-        to: urgems000@gmail.com
-        from: https://github.com/gem-yours/HTTPMock
-        body: Build job of ${{ github.repository }} completed with status ${{ job.status }}
+  unit_test:
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: cd HTTPMock && swift test
